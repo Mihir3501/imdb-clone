@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();
 
-  // Option 1: Using navigate function (if you prefer this approach)
   const handleClick = (e) => {
     e.preventDefault();
     navigate(`/movie/${movie.id}`);

@@ -17,6 +17,7 @@ const Navbar = () => {
 
     return (
         <>
+        <div className="w-full">
             <nav className="bg-black text-white px-4 flex py-2 items-center justify-between">
                 <div className="flex  items-center gap-4">
                     <div className="bg-yellow-400 text-white font-bold px-2 py-1 text-xl rounded">IMDB
@@ -34,7 +35,7 @@ const Navbar = () => {
                         placeholder="Search IMDb"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        className="w-full px-3 py-1 text-black outline-none"
+                        className="w-full px-3 py-1 text-white outline-none"
                     />
                     <select className="bg-gray-900 text-white px-2 outlined-none">
                         <option value="">All</option>
@@ -61,6 +62,7 @@ const Navbar = () => {
                     </select>
                 </div>
             </nav>
+            </div>
         </>
     )
 }

@@ -2,6 +2,8 @@ import React, {useEffect, useState}from 'react'
 import Navbar from '../components/Navbar'
 import MovieCard from '../components/MovieCard';
 
+import { fetchPopularMovies } from '../services/movieService';
+
 const HomePage = () => {
    const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);

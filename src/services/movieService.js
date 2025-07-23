@@ -16,8 +16,6 @@ export const fetchPopularMovies = async () => {
     return [];
   }
 };
-
-// Fetch movie details by ID
 export const fetchMovieDetails = async (movieId) => {
   try {
     const response = await fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`);
@@ -33,8 +31,6 @@ export const fetchMovieDetails = async (movieId) => {
     return null;
   }
 };
-
-// Fetch movie videos (trailers, teasers, etc.)
 export const fetchMovieVideos = async (movieId) => {
   try {
     const response = await fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`);
@@ -50,8 +46,6 @@ export const fetchMovieVideos = async (movieId) => {
     return [];
   }
 };
-
-// Fetch movie cast
 export const fetchMovieCredits = async (movieId) => {
   try {
     const response = await fetch(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`);
@@ -67,8 +61,6 @@ export const fetchMovieCredits = async (movieId) => {
     return { cast: [], crew: [] };
   }
 };
-
-// Search movies
 export const searchMovies = async (query) => {
   try {
     const response = await fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`);

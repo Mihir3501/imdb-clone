@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import MovieDetail from './pages/MovieDetail'
 import Home from './pages/HomePage'
+import SignIn from './auth/features/SignIn'
 
 function App() {
 
@@ -12,6 +13,8 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path="/movie/:id" element={<MovieDetail />} />
+      {/* <Route path='/search/:query' element={<>} */}
+      <Route path='/signin' element={<SignIn/>} />
 
     </Routes>
     </BrowserRouter>

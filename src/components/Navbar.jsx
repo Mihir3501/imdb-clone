@@ -176,7 +176,7 @@ const Navbar = () => {
                             </div>
 
                             <select
-                                className="bg-gray-900 text-white px-2 outline-none"
+                                className="bg-white text-black px-2 outline-none"
                                 value={searchType}
                                 onChange={(e) => setSearchType(e.target.value)}
                             >

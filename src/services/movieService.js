@@ -76,3 +76,25 @@ export const searchMovies = async (query) => {
     return [];
   }
 };
+
+export const fetchPersonDetails = async (personId) => {
+  try {
+    const personResponse = await fetch(`${BASE_URL}/person/${personId}?api_key=${API_KEY}`);
+    if (!personResponse.ok) {
+      throw new Error(`HTTP error! status: ${personResponse.status}`);
+    }
+    const personData = await personResponse.json();
+    const creditsResponse = await fetch(`${BASE_URL}/person/${personId}/movie_credits?api_key=${API_KEY}`);
+    if (!creditsResponse.ok) {
+      throw new Error(`HTTP error! status: ${creditsResponse.status}`);
+    }
+    const creditsData = await creditsResponse.json()
+    return {
+      person: personData,
+      credits: creditsData
+    };
+  } catch (error) {
+    console.error('Error fetching person details:', error);
+    return null;
+  }
+};

@@ -15,7 +15,7 @@ const MovieDetail = () => {
     const loadMovieData = async () => {
       try {
         setLoading(true);
-        
+
         const [movieData, videosData, creditsData] = await Promise.all([
           fetchMovieDetails(id),
           fetchMovieVideos(id),
@@ -37,13 +37,13 @@ const MovieDetail = () => {
 
   const getTrailerUrl = () => {
     if (!videos.length) return null;
-    
-    const trailer = videos.find(video => 
-      video.site === 'YouTube' && 
+
+    const trailer = videos.find(video =>
+      video.site === 'YouTube' &&
       (video.type === 'Trailer' && video.name.includes('Official'))
-    ) || videos.find(video => 
+    ) || videos.find(video =>
       video.site === 'YouTube' && video.type === 'Trailer'
-    ) || videos.find(video => 
+    ) || videos.find(video =>
       video.site === 'YouTube'
     );
 
@@ -106,10 +106,10 @@ const MovieDetail = () => {
         {/* Hero Section */}
         <div className="relative">
           {/* Background Image */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: movie.backdrop_path 
+              backgroundImage: movie.backdrop_path
                 ? `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`
                 : 'linear-gradient(135deg, #1a1a1a, #2d2d2d)'
             }}
@@ -221,11 +221,16 @@ const MovieDetail = () => {
         </div>
 
         {/* Cast Section */}
+        {/* Cast Section - Updated to make clickable */}
         <div className="container mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold mb-8 text-yellow-400">Top Cast</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-6">
             {mainCast.map((actor) => (
-              <div key={actor.id} className="text-center group">
+              <div
+                key={actor.id}
+                className="text-center group cursor-pointer"
+                onClick={() => navigate(`/person/${actor.id}`)}
+              >
                 <div className="relative overflow-hidden rounded-lg mb-3 transform group-hover:scale-105 transition-transform duration-200">
                   {actor.profile_path ? (
                     <img
@@ -239,7 +244,7 @@ const MovieDetail = () => {
                     </div>
                   )}
                 </div>
-                <h4 className="font-semibold text-sm mb-1 text-white leading-tight">
+                <h4 className="font-semibold text-sm mb-1 text-white leading-tight group-hover:text-yellow-400 transition-colors">
                   {actor.name}
                 </h4>
                 <p className="text-gray-400 text-xs leading-tight">
@@ -249,7 +254,6 @@ const MovieDetail = () => {
             ))}
           </div>
         </div>
-
         {/* Movie Details Section */}
         <div className="bg-gray-900 py-12">
           <div className="container mx-auto px-4">

@@ -4,6 +4,7 @@ import './App.css'
 import MovieDetail from './pages/MovieDetail'
 import Home from './pages/HomePage'
 import SignIn from './auth/features/SignIn'
+import PersonDetails from './components/PersonDetails'
 
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
       <Route path="/movie/:id" element={<MovieDetail />} />
       {/* <Route path='/search/:query' element={<>} */}
       <Route path='/signin' element={<SignIn/>} />
-
+      <Route path='/person/:personId' element={<PersonDetails/>}/>
+ 
     </Routes>
     </BrowserRouter>
     </>

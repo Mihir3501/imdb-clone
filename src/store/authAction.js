@@ -21,7 +21,7 @@ const authService = {
           },
         };
         
-        // 90% success rate for demo
+        
         if (Math.random() > 0.1) {
           resolve(user);
         } else {

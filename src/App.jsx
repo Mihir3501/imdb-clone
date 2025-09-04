@@ -5,6 +5,7 @@ import MovieDetail from './pages/MovieDetail'
 import Home from './pages/HomePage'
 import SignIn from './auth/features/SignIn'
 import PersonDetails from './components/PersonDetails'
+import Profile from './auth/features/Profile'
 
 function App() {
 
@@ -17,6 +18,8 @@ function App() {
       {/* <Route path='/search/:query' element={<>} */}
       <Route path='/signin' element={<SignIn/>} />
       <Route path='/person/:personId' element={<PersonDetails/>}/>
+      <Route path="/profile" element={<Profile />} />
+
  
     </Routes>
     </BrowserRouter>

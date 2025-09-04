@@ -1,3 +1,4 @@
+// src/redux/slices/authSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 // Load user from localStorage if exists
@@ -31,7 +32,7 @@ const authSlice = createSlice({
       state.isAuthenticated = true;
       state.user = action.payload;
       state.error = null;
-      
+
       // Save to localStorage
       localStorage.setItem('imdb_user', JSON.stringify(action.payload));
     },
@@ -40,7 +41,7 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
       state.user = null;
       state.error = action.payload;
-      
+
       // Remove from localStorage
       localStorage.removeItem('imdb_user');
     },
@@ -49,7 +50,7 @@ const authSlice = createSlice({
       state.user = null;
       state.error = null;
       state.loading = false;
-      
+
       // Remove from localStorage
       localStorage.removeItem('imdb_user');
       localStorage.removeItem('imdb_watchlist');
